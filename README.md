@@ -1,6 +1,6 @@
 # GraphRAG with FalkorDB, LangChain, and LangGraph
 
-This project demonstrates a Retrieval-Augmented Generation (RAG) workflow using a graph database (FalkorDB) combined with LangChain and LangGraph. It uses a dataset of the top 1000 IMDB movies to build a knowledge graph and then answers questions about the movies, actors, and directors.
+This project demonstrates a Retrieval-Augmented Generation (RAG) workflow using a graph database (FalkorDB) combined with LangChain and LangGraph. It uses a dataset of the top 1000 IMDB movies to build a knowledge graph and then answers questions about the movies, actors, and directors. It implements https://www.falkordb.com/blog/graphrag-workflow-falkordb-langchain/ article.
 
 ## Prerequisites
 
