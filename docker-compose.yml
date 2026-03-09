@@ -11,3 +11,4 @@ services:
     environment:
       - REDIS_ARGS=--appendonly yes --loglevel verbose
       - BROWSER=1
+      - TZ=America/New_York
