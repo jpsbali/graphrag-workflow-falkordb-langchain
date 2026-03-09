@@ -7,7 +7,7 @@ This project demonstrates a Retrieval-Augmented Generation (RAG) workflow using 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Python >=3.12,<4.0](https://www.python.org/downloads/)
 - [uv](https://github.com/astral-sh/uv)
-- An [OpenAI API Key](https://platform.openai.com/account/api-keys)
+- [An OpenAI API Key](https://platform.openai.com/account/api-keys)
 
 ## Setup Instructions
 
@@ -45,12 +45,12 @@ docker exec -it falkordb redis-cli PING
 docker debug falkordb
 ```
 
-You can check if the database is running by connecting to it with a Redis client at `localhost:6379` or via 
+You can check if the database is running by connecting to it with a Redis client at `localhost:6379` or via the Web UI (see section 6 below)
 
 **c. Python Dependencies:**
 
 This project uses `uv` to manage dependencies in a bash like shell (Git Bash on Windows). 
-After installing `uv`, you can sync the environment:
+After installing `uv`, you can sync and source your environment:
 
 ```bash
 uv sync
@@ -64,7 +64,7 @@ This project uses the "IMDB Top 1000" dataset. The dataset for this project is a
 - **Dataset:** [IMDB Dataset of Top 1000 Movies and TV Shows](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows)
 - **File Name:** `data/imdb_top_1000.csv`
 
-## Running the Application
+## 4. Running the Application
 
 Once the setup is complete, you can run the GraphRAG application:
 
@@ -77,9 +77,9 @@ The script will first:
 2. Populate the FalkorDB graph with movies, actors, directors, and genres.
 3. Create a vector index on the movie overviews.
 
-After the setup is complete, you will be prompted to ask questions.
+After the setup is complete, you will be prompted to ask questions. If the DB is already populated you will be asked to reuse the same DB or repopulate it.
 
-## Example Questions
+## 5. Example Questions
 
 Here are some questions you can ask the GraphRAG agent:
 
@@ -98,14 +98,14 @@ Here are some questions you can ask the GraphRAG agent:
 - "Tell me about a movie with a complex plot." (This will likely use vector search)
     `MATCH (m:Movie)-[:IN_GENRE]->(g:Genre) WHERE g.name = "Thriller" OR g.name = "Mystery" OR g.name = "Drama" RETURN m.title, m.overview, m.year ORDER BY m.year DESC LIMIT 10`
 
-## Web Interface for the Falkor DB
+## 6. Web Interface for the Falkor DB
 
 Once the GraphRAG application is up you can access the Web UI
 
 ```bash
 http://localhost:3000
 ```
-## Cleaning Up
+## 7. Cleaning Up
 
 To exit the application, type `exit` or `Ctrl-C`.
 
